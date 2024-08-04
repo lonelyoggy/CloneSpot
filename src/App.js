@@ -11,6 +11,8 @@ const App = () => {
   const REDIRECT_URI = "http://localhost:3000/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
+  const SCOPE = "user-top-read"; // Include the scope for reading user's top tracks
+
   const [token, setToken] = useState('');
   const [user, setUser] = useState(null);
 
@@ -56,7 +58,7 @@ const App = () => {
       {!token ? (
         <a
           className="login-button"
-          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
         >
           Login with Spotify
         </a>
@@ -65,7 +67,7 @@ const App = () => {
           <Sidebar />
           <div className='main'>
             <Header user={user} logout={logout} />
-            <Main user={user} />
+            <Main user={user} token={token} />
           </div>
           <Player />
         </>
