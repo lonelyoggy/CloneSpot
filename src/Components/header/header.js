@@ -23,7 +23,7 @@ const Header = ({ user, logout }) => {
           </>
         ) : (
           <>
-            <FaRegUser size={30} /> // Display CiUser icon by default
+            <FaRegUser size={30} />
             <span>User</span>
             <button className="logout-button" onClick={logout}>Logout</button>
           </>

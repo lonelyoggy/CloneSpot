@@ -2,10 +2,10 @@ import React from 'react';
 import Card from '../card/card';
 import './main.css';
 
-const Main = () => {
+const Main = ({ user }) => {
     return (
         <div className="content">
-            <h2>Good Afternoon</h2>
+            <h2>Good Afternoon{user ? `, ${user.display_name}` : ''}</h2>
             <div className='card-container'>
                 <Card title="Playlist 1" />
                 <Card title="Playlist 2" />

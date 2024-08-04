@@ -65,7 +65,7 @@ const App = () => {
           <Sidebar />
           <div className='main'>
             <Header user={user} logout={logout} />
-            <Main />
+            <Main user={user} />
           </div>
           <Player />
         </>
