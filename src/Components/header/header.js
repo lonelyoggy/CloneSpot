@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './header.css';
 import { FaRegUser } from "react-icons/fa";
 
 
-const Header = ({ user, logout }) => {
+const Header = ({ user, logout, onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      onSearch(searchQuery);
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchQuery, onSearch]);
+
   return (
     <header>
-      <input type="text" placeholder="Search for Artists, Songs, or Podcasts" />
+      <input 
+      type="text" 
+      placeholder="Search for Artists, Songs, or Podcasts" 
+      value= {searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <div className="user-profile">
         {user ? (
           <>

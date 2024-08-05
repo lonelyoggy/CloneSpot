@@ -11,10 +11,11 @@ const App = () => {
   const REDIRECT_URI = "http://localhost:3000/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
-  const SCOPE = "user-top-read"; // Include the scope for reading user's top tracks
+  const SCOPE = "user-top-read user-library-read playlist-read-private"; // Include the scope for reading user's top tracks
 
   const [token, setToken] = useState('');
   const [user, setUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -53,6 +54,10 @@ const App = () => {
     window.localStorage.removeItem("token");
   };
 
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   return (
     <div className="app">
       {!token ? (
@@ -66,8 +71,8 @@ const App = () => {
         <>
           <Sidebar />
           <div className='main'>
-            <Header user={user} logout={logout} />
-            <Main user={user} token={token} />
+            <Header user={user} logout={logout} onSearch={handleSearch} />
+            <Main user={user} token={token} searchQuery={searchQuery} />
           </div>
           <Player />
         </>
