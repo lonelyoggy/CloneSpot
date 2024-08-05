@@ -1,35 +1,62 @@
-.content {
-    flex: 1;
-    padding: 20px;
+/* main.css */
+html, body{
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
-.content h2 {
-    margin-top: 0;
-}
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card{
-    background-color: #1DB954;
-    color: white;
-    padding: 20px;
-    width: calc(33.333% - 20px);
-    box-sizing: border-box;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.card p {
-    margin-top: 10px;
+.main-content {
+    padding: 24px;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 32px;
     font-weight: bold;
-}
+    margin-bottom: 24px;
+  }
+  
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  
+  .track-card {
+    background-color: #181818;
+    border-radius: 8px;
+    padding: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .track-card:hover {
+    background-color: #282828;
+  }
+  
+  .track-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .track-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .track-info p {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
